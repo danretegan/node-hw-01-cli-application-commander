@@ -1,53 +1,23 @@
-import yargs from "yargs";
-import { hideBin } from "yargs/helpers";
+// index.js
+import { Command } from "commander";
 import {
   listContacts,
   addContact,
   removeContact,
   getContactById,
 } from "./contacts.js";
-import colors from "colors";
 
-const scriptName = "node index.js";
+const program = new Command();
+program
+  .option("-a, --action <type>", "choose action")
+  .option("-i, --id <type>", "user id")
+  .option("-n, --name <type>", "user name")
+  .option("-e, --email <type>", "user email")
+  .option("-p, --phone <type>", "user phone");
 
-yargs(hideBin(process.argv))
-  .scriptName(scriptName)
-  .command({
-    command: "list",
-    describe: "List all contacts",
-    handler: () => invokeAction({ action: "list" }),
-  })
-  .command({
-    command: "get <id>",
-    describe: "Get contact by ID",
-    builder: (yargs) => yargs.positional("id", { describe: "Contact ID" }),
-    handler: (argv) => invokeAction({ action: "get", id: argv.id }),
-  })
-  .command({
-    command: "add <name> <email> <phone>",
-    describe: "Add a new contact",
-    builder: (yargs) => {
-      yargs.positional("name", { describe: "Contact name" });
-      yargs.positional("email", { describe: "Contact email" });
-      yargs.positional("phone", { describe: "Contact phone number" });
-    },
-    handler: (argv) =>
-      invokeAction({
-        action: "add",
-        name: argv.name,
-        email: argv.email,
-        phone: argv.phone,
-      }),
-  })
-  .command({
-    command: "remove <id>",
-    describe: "Remove contact by ID",
-    builder: (yargs) => yargs.positional("id", { describe: "Contact ID" }),
-    handler: (argv) => invokeAction({ action: "remove", id: argv.id }),
-  })
-  .demandCommand(1, "You need at least one command before moving on")
-  .strict()
-  .help().argv;
+program.parse(process.argv);
+
+const argv = program.opts();
 
 function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
@@ -71,3 +41,5 @@ function invokeAction({ action, id, name, email, phone }) {
       console.warn("\x1B[31m Unknown action type!");
   }
 }
+
+invokeAction(argv);

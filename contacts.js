@@ -2,6 +2,7 @@ import { dirname } from "path";
 import { randomUUID } from "crypto";
 import { fileURLToPath } from "url";
 import { readFile, writeFile } from "fs/promises";
+import colors from "colors";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const contactsPath = `${__dirname}\\db\\contacts.json`;
