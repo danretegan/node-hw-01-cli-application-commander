@@ -1,4 +1,3 @@
-// index.js
 import { Command } from "commander";
 import {
   listContacts,
@@ -6,6 +5,7 @@ import {
   removeContact,
   getContactById,
 } from "./contacts.js";
+import colors from "colors";
 
 const program = new Command();
 program
@@ -39,6 +39,13 @@ function invokeAction({ action, id, name, email, phone }) {
 
     default:
       console.warn("\x1B[31m Unknown action type!");
+      console.log("Available actions:".green);
+      console.log("- node index.js -a list /List all contacts.");
+      console.log("- node index.js -a get -i id /Get contact by ID.");
+      console.log(
+        '- node index.js -a add -n "name" -e "email" -p "phone" /Add a new contact. (Please use "")'
+      );
+      console.log("- node index.js -a remove -i id /Remove contact by ID.");
   }
 }
 
