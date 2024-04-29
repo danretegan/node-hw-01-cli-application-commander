@@ -18,3 +18,7 @@ _foloseste ghilimele daca sirul de introdus este format din doua sau mai multe e
 
 `node index.js -a remove -i idxyz123`
 _inlocuieste 'idxyz123' cu id-ul dorit!_
+
+### Help:
+
+`node index.js -h`
