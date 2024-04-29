@@ -31,7 +31,7 @@
 - remove:
 `node index.js -a remove -i id`
 <p>
-<img src="https://i.ibb.co/zVBPRRc/remove.jpg" alt="remove" border="0" width="600" title="remove">
+<img src="https://i.ibb.co/C55JWN1/remove.jpg" alt="remove" border="0" width="600" title="remove">
 </p>
 
 ### Errors:
