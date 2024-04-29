@@ -12,6 +12,7 @@ _inlocuieste 'idxyz123' cu id-ul dorit!_
 ### Adăugarea unui contact:
 
 `node index.js -a add -n "Numele Persoanei" -e "email@exemplu.com" -p "123-456-7890"`
+_foloseste ghilimele daca sirul de introdus este format din doua sau mai multe elemente: "Numele Persoanei"._
 
 ### Ștergerea unui contact:
 
