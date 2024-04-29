@@ -61,5 +61,5 @@
 `node index.js -h`
 
 <p>
-<img src="https://i.ibb.co/GC2tGbX/help.jpg" alt="Help" border="0" width="600" title="Help">
+<img src="https://i.ibb.co/GC2tGbX/help.jpg" alt="help" border="0"  width="600">
 </p>
